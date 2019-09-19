@@ -27,6 +27,7 @@
             {{ even }}
           </li>
         </div> -->
+
         <div *appUnless="onlyOdd">
           <li
             *ngFor="let odd of oddNumbers"
@@ -58,4 +59,12 @@
   <p appBetterHightlight [defaultColor]="'orange'" [highlightColor]="'red'">
     Style me!!
   </p>
+
+  <div [ngSwitch]="value">
+    <p *ngSwitchCase="5">the value is 5</p>
+    <p *ngSwitchCase="10">the value is 10</p>
+    <p *ngSwitchCase="320">the value is 320</p>
+    <p *ngSwitchCase="100">the value is 100</p>
+    <p *ngSwitchDefault>this is the default value</p>
+  </div>
 </div>
