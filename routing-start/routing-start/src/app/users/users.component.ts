@@ -1,23 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: "app-users",
+  templateUrl: "./users.component.html",
+  styleUrls: ["./users.component.css"]
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit() {}
+
   users = [
     {
       id: 1,
-      name: 'Max'
+      name: "Max"
     },
     {
       id: 2,
-      name: 'Anna'
+      name: "Anna"
     },
     {
       id: 3,
-      name: 'Chris'
+      name: "Chris"
     }
   ];
+
+  reloadPage() {
+    this.router.navigate(["/users"], { relativeTo: this.route });
+    console.log("reloading...");
+  }
 }
